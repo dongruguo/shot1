@@ -1,0 +1,3 @@
+MongoClient内部实现了连接池，初始化是10个连接
+
+mongodb 的ttl索引在设置了expireAfterSeconds之后，是每分钟循环一次，所以将expireAfterSeconds设置小于一分钟是没效果的。而且在添加ttl索引，不能是复合索引
