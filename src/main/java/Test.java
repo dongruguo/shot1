@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -6,6 +7,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
+=======
+import java.util.concurrent.ArrayBlockingQueue;
+>>>>>>> branch 'master' of https://github.com/dongruguo/shot1.git
 
 public class Test extends TimerTask {
 	
@@ -19,6 +23,7 @@ public class Test extends TimerTask {
     }
 	
 	public static void main(String[] args) {
+<<<<<<< HEAD
 		List<String> l1 = new ArrayList<>();
 		l1.add("l1");l1.add("l2");
 		List<String> l2 = new ArrayList<>();
@@ -29,6 +34,34 @@ public class Test extends TimerTask {
 			System.out.println(str);
 		}
 		
+=======
+		ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(2);
+		try {
+			queue.put(10);
+			queue.put(9);
+			System.out.println(queue.take());
+			System.out.println(queue.take());
+			System.out.println(queue.take());
+			queue.put(8);
+			System.out.println(queue.take());
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}
+
+class testCla{
+	private String name="11111";
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+>>>>>>> branch 'master' of https://github.com/dongruguo/shot1.git
 	}
 	
 	@org.junit.Test
