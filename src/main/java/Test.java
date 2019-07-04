@@ -20,29 +20,7 @@ public class Test extends TimerTask {
     }
 	
 	public static void main(String[] args) {
-		List<String> l1 = new ArrayList<>();
-		l1.add("l1");l1.add("l2");
-		List<String> l2 = new ArrayList<>();
-		l2.add("l2");
-		Set<String> set = new HashSet<>();
-		set.addAll(l1);set.addAll(l2);
-		for(String str:set) {
-			System.out.println(str);
-		}
-		
-		ArrayBlockingQueue<Integer> queue = new ArrayBlockingQueue<>(2);
-		try {
-			queue.put(10);
-			queue.put(9);
-			System.out.println(queue.take());
-			System.out.println(queue.take());
-			System.out.println(queue.take());
-			queue.put(8);
-			System.out.println(queue.take());
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		System.out.println(System.nanoTime());
 		
 	}
 }
