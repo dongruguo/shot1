@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.util.Iterator;
 
+import org.ansj.lucene7.AnsjAnalyzer;
+import org.ansj.lucene7.AnsjAnalyzer.TYPE;
 import org.apache.commons.io.FileUtils;
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.analysis.CharArraySet;
@@ -21,11 +23,15 @@ import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.index.Term;
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.queryparser.classic.QueryParser;
 import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.PhraseQuery;
 import org.apache.lucene.search.Query;
 import org.apache.lucene.search.ScoreDoc;
 import org.apache.lucene.search.TermQuery;
 import org.apache.lucene.search.TopDocs;
+import org.apache.lucene.search.WildcardQuery;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 import org.apache.lucene.util.Version;
@@ -37,43 +43,60 @@ public class FirstLucene {
 	public void test() throws IOException {
 		Directory dire = FSDirectory.open(new File("D:\\lucene\\index").toPath());
 		// 创建使用的分词器
-		Analyzer analyzer = new StandardAnalyzer();
+		Analyzer analyzer = new AnsjAnalyzer(TYPE.query_ansj);
+		
+		
 		// 索引配置对象
 		IndexWriterConfig config = new IndexWriterConfig(analyzer);
 		IndexWriter writer = new IndexWriter(dire, config);
+		Document doc = new Document(); 
 		
-		
-		
-		File file = new File("D:\\lucene\\eclipseData");
-		File[] files = file.listFiles();
-		for(File f:files) {
-			Document doc = new Document();
-			String file_name = f.getName();
-			Field nameField = new TextField("fileName", file_name, Store.YES);
-					
-			Long file_size = FileUtils.sizeOf(f);
-			Field sizeF = new StoredField("fileSize",file_size);
-			
-			String file_path = f.getPath();
-			Field pathFiled = new StoredField("filePath", file_path);
-			
-			String file_content = FileUtils.readFileToString(f);
-			Field contengF = new TextField("fileContent", file_content,Store.NO);
-			
-			doc.add(nameField);doc.add(sizeF);doc.add(pathFiled);doc.add(contengF);
-			writer.addDocument(doc);
-		
-		}
+		String text = "其中第二个相比第一个多了相关的语汇信息，便于我们进行分词";
+		Field nameField = new TextField("fileName",text, Store.YES);
+		doc.add(nameField);
+		writer.addDocument(doc);
+		writer.close();
+		/*
+		 * File file = new File("D:\\lucene\\eclipseData"); File[] files =
+		 * file.listFiles();
+		 *  for(File f:files) { Document doc = new Document(); 
+		 *  String file_name = f.getName(); 
+		 *  Field nameField = new TextField("fileName",file_name, Store.YES);
+		 * 
+		 * Long file_size = FileUtils.sizeOf(f); Field sizeF = new
+		 * StoredField("fileSize",file_size);
+		 * 
+		 * String file_path = f.getPath(); Field pathFiled = new StoredField("filePath",
+		 * file_path);
+		 * 
+		 * String file_content = FileUtils.readFileToString(f); Field contengF = new
+		 * TextField("fileContent", file_content,Store.NO);
+		 * 
+		 * doc.add(nameField);doc.add(sizeF);doc.add(pathFiled);doc.add(contengF);
+		 * writer.addDocument(doc);
+		 * 
+		 * }
+		 */
 		writer.close();
 	}
 	
 	@Test
-	public void search() throws IOException {
+	public void search() throws IOException, ParseException {
 		Directory dire = FSDirectory.open(new File("D:\\lucene\\index").toPath());
 		
 		IndexReader reader = DirectoryReader.open(dire);
 		IndexSearcher search = new IndexSearcher(reader);
-		Query query =new TermQuery(new Term("fileName","txt2"));
+		
+		/*
+		 * PhraseQuery.Builder builder=new PhraseQuery.Builder(); Term t1=new
+		 * Term("fileName","第一"); Term t2=new Term("fileName","第二"); builder.add(t1);
+		 * builder.add(t2); // builder.setSlop(0); PhraseQuery query=builder.build();
+		 */
+		Query query = new WildcardQuery(new Term("fileName","第一"));
+		/*
+		 * Analyzer analyzer = new AnsjAnalyzer(TYPE.query_ansj); QueryParser parser=new
+		 * QueryParser("fileName", analyzer); Query query=parser.parse("第二第一");
+		 */
 		
 		TopDocs docs = search.search(query, 3);
 		ScoreDoc[] doc = docs.scoreDocs;
@@ -81,14 +104,8 @@ public class FirstLucene {
 			int sc = d.doc;
 			Document docu = search.doc(sc);
 			String fileName = docu.get("fileName");
-			String fileSize = docu.get("fileSize");
-			String filePath = docu.get("filePath");
-			String fileContent = docu.get("fileContent");
 			System.out.println("fileName:"+fileName+"");
-			System.out.println("fileSize:"+fileSize+"");
-			System.out.println("filePath:"+filePath+"");
 			System.out.println("&&&&&&&&&&&&&&&&&&&&&&&&");
-		//System.out.println("fileContent:"+fileContent+"");
 			
 		}
 	}
