@@ -1,3 +1,4 @@
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -7,6 +8,8 @@ import java.util.Set;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
 
 public class Test extends TimerTask {
 	
@@ -14,15 +17,51 @@ public class Test extends TimerTask {
     public void run()
     {
         SimpleDateFormat sdf = null;
-        sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
-        System.out.println("当前时间：" + sdf.format(new Date()));
+        sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        try {
+        	Date date = new Date();
+			System.out.println("当前时间：" + date.compareTo(sdf.parse("2019-07-09 11:14")));
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
     }
 	
-	public static void main(String[] args) {
-		System.out.println(System.nanoTime());
+	public static void main(String[] args) throws InterruptedException {
+		ArrayBlockingQueue<Integer> queue  = new ArrayBlockingQueue<>(5);
+		new Thread( new Runnable() {
+			@Override
+			public void run() {
+				while(true){
+					try {
+						System.out.println(queue.take());
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+		}).start();
 		
+		new Thread( new Runnable() {
+			@Override
+			public void run() {
+				for(int i=0;i<20;i++) {
+					try {
+						queue.put(i);
+						Thread.sleep(1000);
+					} catch (InterruptedException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				}
+			}
+			
+		}).start();
 	}
+		
 }
 
 class testCla{
