@@ -1,7 +1,9 @@
+E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\future\FutureTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\tongpei\TongpeiClass.java
 E:\eclipseWorkSpace\shot1\src\main\java\DemoTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\VolatileTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\test\PrintOu.java
+E:\eclipseWorkSpace\shot1\src\main\java\lucene\FirstLucene.java
 E:\eclipseWorkSpace\shot1\src\main\java\StaticTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\Yuxuan.java
 E:\eclipseWorkSpace\shot1\src\main\java\StringTest.java
@@ -16,7 +18,6 @@ E:\eclipseWorkSpace\shot1\src\main\java\JavaJVM\JavaDui.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\join\ProducerQueue.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\test\Test.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\shengchang\Consumer.java
-E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\ThreadLocal\DeepClone.java
 E:\eclipseWorkSpace\shot1\src\main\java\fanshe\Sub.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\shengchang\MainTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\siyi\MontherImpl.java
@@ -29,15 +30,17 @@ E:\eclipseWorkSpace\shot1\src\main\java\Base64Util.java
 E:\eclipseWorkSpace\shot1\src\main\java\TestSubList.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\SishiliuTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\qishi.java
+E:\eclipseWorkSpace\shot1\src\main\java\textrank\TextRankKeyword.java
 E:\eclipseWorkSpace\shot1\src\main\java\Test.java
 E:\eclipseWorkSpace\shot1\src\main\java\tongpei\Main.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\join\Producer.java
-E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\ThreadLocal\SeraTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\Param.java
 E:\eclipseWorkSpace\shot1\src\main\java\Car.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\reenLock\RcSyncPrinter.java
+E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\shengchang\ConTest2.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\FourTwo.java
 E:\eclipseWorkSpace\shot1\src\main\java\com\paixu\MaoPao.java
+E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\executor\CompleteServiceTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\YieldTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\NullDemo.java
 E:\eclipseWorkSpace\shot1\src\main\java\quartz\HelloJob.java
@@ -66,7 +69,6 @@ E:\eclipseWorkSpace\shot1\src\main\java\daili\Subject.java
 E:\eclipseWorkSpace\shot1\src\main\java\ThreadPoolExecutorTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\jiushi\InheritedAnnotationTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\shengchang\Produce.java
-E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\ThreadLocal\Test.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\kecheng\ThreadTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\ComparaTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\latch\CountDownLatchTest.java
@@ -77,6 +79,7 @@ E:\eclipseWorkSpace\shot1\src\main\java\quartz\HelloQuartz.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\cache\ExpensiveFunction.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\join\ProducerCustomer2.java
 E:\eclipseWorkSpace\shot1\src\main\java\JavaJVM\CLassLoaderTest.java
+E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\executor\NonCompleteServiceTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\Concurrent\CountDownLatchTest.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\join\JoinTester02.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\kecheng\TestOne.java
@@ -84,6 +87,7 @@ E:\eclipseWorkSpace\shot1\src\main\java\daili\RealSubject.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\siyi\Son.java
 E:\eclipseWorkSpace\shot1\src\main\java\JavaJVM\ClassLoaderAndForName.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\FinalTest.java
+E:\eclipseWorkSpace\shot1\src\main\java\lucene\solr\Test.java
 E:\eclipseWorkSpace\shot1\src\main\java\com\paixu\QuckSort.java
 E:\eclipseWorkSpace\shot1\src\main\java\Syn\Main.java
 E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\join\Coumser.java
@@ -104,13 +108,16 @@ E:\eclipseWorkSpace\shot1\src\main\java\xiancheng\join\JoinTester01.java
 E:\eclipseWorkSpace\shot1\src\main\java\fastJson\Student.java
 E:\eclipseWorkSpace\shot1\src\main\java\tongpei\HolderTP.java
 E:\eclipseWorkSpace\shot1\src\main\java\TestDoouble.java
+E:\eclipseWorkSpace\shot1\src\main\java\lucene\AnsjToken.java
 E:\eclipseWorkSpace\shot1\src\main\java\com\paixu\InsertSort.java
 E:\eclipseWorkSpace\shot1\src\main\java\JavaJVM\JvmFinalizeGC.java
 E:\eclipseWorkSpace\shot1\src\main\java\ImageHelper.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\jiushi\AbstractParent.java
 E:\eclipseWorkSpace\shot1\src\main\java\JavaJVM\StaticDispatch.java
+E:\eclipseWorkSpace\shot1\src\main\java\textrank\TextRankSummary.java
 E:\eclipseWorkSpace\shot1\src\main\java\fanshe\ArrayFS.java
 E:\eclipseWorkSpace\shot1\src\main\java\mongo\MongoDoc.java
+E:\eclipseWorkSpace\shot1\src\main\java\textrank\BM25.java
 E:\eclipseWorkSpace\shot1\src\main\java\com\paixu\SelectSort.java
 E:\eclipseWorkSpace\shot1\src\main\java\OneFiveOneTest\siyi\Monther.java
 E:\eclipseWorkSpace\shot1\src\main\java\tongpei\Holder.java
