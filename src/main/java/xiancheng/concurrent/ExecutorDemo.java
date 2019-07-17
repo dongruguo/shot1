@@ -1,4 +1,4 @@
-package xiancheng.Concurrent;
+package xiancheng.concurrent;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -16,17 +16,19 @@ public class ExecutorDemo {
             BlockingQueue<Runnable> queue = new  ArrayBlockingQueue<Runnable>(1);
             ThreadPoolExecutor pool = new ThreadPoolExecutor(corePoolSize,  maximumPoolSize, 
                     0, TimeUnit.SECONDS, queue ) ;
-            pool.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy ());//丢弃策略是直接丢弃先进来的
+           // pool.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardPolicy ());//丢弃策略是直接丢弃最新的
+            pool.setRejectedExecutionHandler(new ThreadPoolExecutor.DiscardOldestPolicy());//丢弃策略是最先进来的
             for(int i=0;i<10;i++){
                 final int index = i;
                 pool.submit(new Runnable(){
-
                     @Override
                     public void run() {
                     	System.out.println("i="+index);
+                    	
                         log(Thread.currentThread().getName()+"begin run task :"+index);
                         try {
                             Thread.sleep(1000);
+                            if(index%2==1)Thread.currentThread().interrupt();
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }

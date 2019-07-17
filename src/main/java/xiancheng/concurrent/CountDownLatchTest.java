@@ -1,4 +1,4 @@
-package xiancheng.Concurrent;
+package xiancheng.concurrent;
 
 import java.util.concurrent.CountDownLatch;
 
