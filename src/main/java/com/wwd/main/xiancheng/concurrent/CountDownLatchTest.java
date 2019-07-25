@@ -22,6 +22,15 @@ public class CountDownLatchTest {
 				latch.countDown();
 			}
 		}.start();
+
+		new Thread() {
+			@Override
+			public void run() {
+				System.out.println("子线程运行"+Thread.currentThread().getName());
+				latch.countDown();
+			}
+		}.start();
+		
 		try {
 			latch.await();	
 		}catch(Exception e) {

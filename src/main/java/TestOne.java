@@ -1,11 +1,13 @@
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TestOne extends Thread{
+	
+	private static Logger log = LoggerFactory.getLogger(TestOne.class);
+	
 	private String nickName;
 	private String lastName;
 	public void Test(Object obj) {
-		TestOne one = (TestOne)obj;
-		System.out.println(one.lastName);
-		System.out.println(one.nickName);
 	}
 	public String getLastName() {
 		return lastName;
@@ -20,12 +22,11 @@ public class TestOne extends Thread{
 		this.nickName = nickName;
 	}
 	
-	public static void main(String[] args) {
-		/*
-		 * TestOne one = new TestOne(); one.setLastName("lastName");
-		 * one.setNickName("nickName"); one.Test(one);
-		 */
-		 System.out.println(""+Runtime.getRuntime().availableProcessors());
+	public static void main(String[] args) throws InterruptedException {
+		log.info("info");
+		log.debug("debug");
+		log.error("错误error信息");
+		log.warn("警告warn信息");
 		
 	}
 
