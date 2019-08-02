@@ -26,27 +26,20 @@ public class TimingThreadPool extends ThreadPoolExecutor {
 		Executors.defaultThreadFactory(), defaultHandler);
 		}
 
-    private final ThreadLocal<Long> startTime = new ThreadLocal<Long>();
+    private final ThreadLocal<String> startTime = new ThreadLocal<String>();
     private final Logger log = LoggerFactory.getLogger(TimingThreadPool.class);
-    private final AtomicLong numTasks = new AtomicLong();
-    private final AtomicLong totalTime = new AtomicLong();
 
     @Override
     protected void beforeExecute(Thread t, Runnable r) {
         super.beforeExecute(t, r);
-        log.debug(String.format("beforeExecute:Thread %s: start %s", t, r));
-        startTime.set(System.nanoTime());
+        startTime.set(t.getName());
     }
 
     @Override
     protected void afterExecute(Runnable r, Throwable t) {
         try {
-            long endTime = System.nanoTime();
-            long taskTime = endTime - startTime.get();
-            numTasks.incrementAndGet();
-            totalTime.addAndGet(taskTime);
-            log.debug(String.format("afterExecute:Thread %s: end %s, time=%dns",
-                    t, r, taskTime));
+           String endTime = startTime.get();
+            log.debug("afterExecute:	"+endTime);
         } finally {
             super.afterExecute(r, t);
         }
@@ -55,8 +48,6 @@ public class TimingThreadPool extends ThreadPoolExecutor {
     @Override
     protected void terminated() {
         try {
-            log.debug(String.format("Terminated: avg time=%dns",
-                    totalTime.get() / numTasks.get()));
         } finally {
             super.terminated();
         }

@@ -20,9 +20,8 @@ public class ExecutorDemo {
                 pool.submit(new Runnable(){
                     @Override
                     public void run() {
-                    	System.out.println("i="+index);
-                    	
-                        log(Thread.currentThread().getName()+"begin run task :"+index);
+                    	Thread.currentThread().setName("线程"+index);
+                        log(Thread.currentThread().getName()+"	begin run task :"+index);
                         try {
                             Thread.sleep(1000);
                             if(index%2==1)Thread.currentThread().interrupt();
@@ -34,8 +33,6 @@ public class ExecutorDemo {
 
                 });
             }
-
-            System.out.println("----------------");
             try {
                 Thread.sleep(4000);
             } catch (InterruptedException e) {

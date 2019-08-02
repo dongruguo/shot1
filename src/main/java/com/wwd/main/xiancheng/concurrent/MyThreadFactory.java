@@ -31,7 +31,6 @@ public class MyThreadFactory implements ThreadFactory {
         Iterator<String> it = stats.iterator();  
         while(it.hasNext()) {  
             buffer.append(it.next());  
-         //   buffer.append("\n");  
         }  
         return buffer.toString();  
     }  
@@ -58,7 +57,6 @@ class Task implements Runnable{
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }       
     }
