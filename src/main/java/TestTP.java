@@ -5,5 +5,8 @@ public class TestTP {
 	public <T> T get() {
 		return (T)t;
 	}
+	
+	public static void main(String[] args) {
+	}
 
 }
