@@ -1,5 +1,7 @@
 package com.wwd.main.annotation;
 
+import java.util.Collections;
+
 @MyAnnotation(color="redd",value="孤傲苍狼")//等价于@MyAnnotation(value="孤傲苍狼")
 public class MyAnnotationTest {
     public static void main(String[] args) {
@@ -9,6 +11,5 @@ public class MyAnnotationTest {
         MyAnnotation annotation = (MyAnnotation) MyAnnotationTest.class.getAnnotation(MyAnnotation.class);
         System.out.println(annotation.color());//输出color属性的默认值：blue
         System.out.println(annotation.value());
-        
     }
 }
